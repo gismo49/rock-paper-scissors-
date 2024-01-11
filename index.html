@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+    <html lang="en">
+        <meta charset="UTF-8">
+        <title>rockpaperscissors</title>
+    </html>
+<body>
+    <h1>rockpaperscissors</h1>
+    <script>
+        function getComputerChoice() {
+            const randomNum = Math.floor(Math.random() * 3); //Generate a random number between 0 and 2
+
+            switch (randomNum) {
+                case 0:
+                    return "Rock";
+                case 1:
+                    return "Paper";
+                case 2:
+                    return "Scissors";
+                default:
+                    return "Rock"; //In case something goes wrong?
+            }
+        }
+
+        let computerChoice = getComputerChoice();
+        console.log("Computer's choice: " + computerChoice);
+
+        f
+
+    </script>
+</body>
