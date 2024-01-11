@@ -25,7 +25,25 @@
         let computerChoice = getComputerChoice();
         console.log("Computer's choice: " + computerChoice);
 
-        f
+        let getPlayerChoice = prompt("Choose Rock, Paper or Scissors")
+        function capitalize () {
+            if (typeof getPlayerChoice !== "string" || getPlayerChoice.length === 0) {
+                return "Input need to be rock, paper, or scissors" // Handle invalid input
+            }
+            let firstLetter = getPlayerChoice.charAt(0).toUpperCase();
+            let restOfString = getPlayerChoice.slice(1).toLowerCase();
+
+            return firstLetter + restOfString;
+        }    
+        
+        let playerChoice = capitalize(getPlayerChoice); 
+
+            console.log("You chose: " + playerChoice)
+
+        function playRound (playerChoice, computerChoice) {
+            
+            
+        }
 
     </script>
 </body>
