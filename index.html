@@ -1,49 +1,95 @@
 <!DOCTYPE html>
-<head>
-    <html lang="en">
+<html lang="en">
+    <head>
         <meta charset="UTF-8">
-        <title>rockpaperscissors</title>
-    </html>
-<body>
-    <h1>rockpaperscissors</h1>
-    <script>
-        function getComputerChoice() {
-            const randomNum = Math.floor(Math.random() * 3); //Generate a random number between 0 and 2
-
-            switch (randomNum) {
-                case 0:
-                    return "Rock";
-                case 1:
-                    return "Paper";
-                case 2:
-                    return "Scissors";
-                default:
-                    return "Rock"; //In case something goes wrong?
-            }
-        }
-
-        let computerChoice = getComputerChoice();
-        console.log("Computer's choice: " + computerChoice);
-
-        let getPlayerChoice = prompt("Choose Rock, Paper or Scissors")
-        function capitalize () {
-            if (typeof getPlayerChoice !== "string" || getPlayerChoice.length === 0) {
-                return "Input need to be rock, paper, or scissors" // Handle invalid input
-            }
-            let firstLetter = getPlayerChoice.charAt(0).toUpperCase();
-            let restOfString = getPlayerChoice.slice(1).toLowerCase();
-
-            return firstLetter + restOfString;
-        }    
+        <title>rock,paper,scissors</title>
+    </head>
+    <body>
+        <script>
         
-        let playerChoice = capitalize(getPlayerChoice); 
+        let playerScore = 0
+        let computerScore = 0
 
-            console.log("You chose: " + playerChoice)
+        
 
-        function playRound (playerChoice, computerChoice) {
-            
-            
+        function game() {
+
+            function getComputerChoice() {
+                
+                const randomNum = Math.floor(Math.random() * 3);
+        
+                switch(randomNum) {
+
+                    case 0: 
+                        return "Rock";
+                    case 1: 
+                        return "Paper";
+                    case 2:
+                        return "Scissors";
+                
+                }
+            }
+        
+
+            let computerChoice = getComputerChoice ();
+
+        
+            function capitalize() {
+                let userInput = prompt("Enter Rock, Paper or Scissors");
+                return userInput.charAt(0).toUpperCase() + userInput.slice(1).toLowerCase();
+            }
+
+            const playerChoice = capitalize()
+
+            function playRound(computerChoice, playerChoice) {
+                if (computerChoice === playerChoice) {
+                    return "It's a tie";
+                } else if (
+                    (playerChoice === "Rock" && computerChoice === "Scissors") ||
+                    (playerChoice === "Paper" && computerChoice === "Rock") ||
+                    (playerChoice === "Scissors" && computerChoice === "Paper")
+                    ) { 
+                        playerScore++;
+                        return "You Win! " + playerChoice + " beats " + computerChoice;
+                    } else {
+                        computerScore++;
+                        return "You lose! " + computerChoice + " beats " + playerChoice;
+                    }
+            }
+
+            let result = playRound(computerChoice, playerChoice)
+            console.log(result)
+            console.log("You: " + playerScore)
+            console.log("Computer: " + computerScore)
         }
 
-    </script>
-</body>
+            game();
+            game();
+            game();
+            game();
+            game();
+
+
+            function getEndResult() {
+                if (playerScore > computerScore) {
+                    return "Awesome! You won!";
+                } 
+                if (playerScore < computerScore) {
+                    return "Awwww! You lost!";
+                }
+                if (playerScore === computerScore) {
+                    return "It's a draw!"
+                }
+            }
+
+
+            let endResult = getEndResult()
+            console.log("Final Result: " + endResult)
+            
+        
+
+        
+
+        </script>
+    </body>
+</html>
